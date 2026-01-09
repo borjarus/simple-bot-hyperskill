@@ -1,0 +1,10 @@
+type: edu
+files:
+  - name: src/bot/SimpleBot.kt
+    visible: true
+    learner_created: false
+  - name: test/ChattyBotTest.java
+    learner_created: false
+feedback_link: https://hyperskill.org/projects/95/stages/525/implement#comment
+status: Unchecked
+record: -1
