@@ -23,9 +23,15 @@ public class ChattyBotTest extends StageTest<Clue> {
 
     @Override
     public List<TestCase<Clue>> generate() {
+        String input = "Marry\n1 0 5\n10";
+
+        for (int i = 1; i < 9; i++) {
+            input += "\n" + i;
+        }
+
         return Collections.singletonList(
             new TestCase<Clue>()
-                .setInput("Marry\n1 0 5\n10")
+                .setInput(input)
                 .setAttach(new Clue("Marry", 40, 10))
         );
     }
@@ -37,9 +43,9 @@ public class ChattyBotTest extends StageTest<Clue> {
 
         int length = 9 + clue.count + 1;
 
-        if (lines.length != length) {
+        if (lines.length <= length) {
             return CheckResult.wrong(
-                "You should output " + length + " lines " +
+                "You should output at least " + (length + 1) + " lines " +
                     "(for the count number " + clue.count +").\n" +
                     "Lines found: " + lines.length + "\n" +
                     "Your output:\n" +
@@ -83,6 +89,17 @@ public class ChattyBotTest extends StageTest<Clue> {
                         "\"" + numLine + "\""
                 );
             }
+        }
+
+        String lastLine = lines[lines.length - 1];
+
+        if (!lastLine.equals("Congratulations, have a nice day!")) {
+            return CheckResult.wrong(
+                "Your last line should be:\n" +
+                    "\"Congratulations, have a nice day!\"\n" +
+                    "Found:\n" +
+                    "\"" + lastLine + "\""
+            );
         }
 
         return CheckResult.correct();
