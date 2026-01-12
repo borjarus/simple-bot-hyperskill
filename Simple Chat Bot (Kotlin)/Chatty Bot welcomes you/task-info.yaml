@@ -4,7 +4,11 @@ files:
     visible: true
     learner_created: false
   - name: test/ChattyBotTest.java
+    visible: true
     learner_created: false
 feedback_link: https://hyperskill.org/projects/95/stages/524/implement#comment
-status: Unchecked
-record: -1
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Mon, 12 Jan 2026 10:28:17 UTC"
+record: 1
